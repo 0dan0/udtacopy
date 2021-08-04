@@ -2,7 +2,7 @@
 *
 *  @brief Hack to copy global GPMF data from an MP4 to another
 *
-*  @version 1.0.1
+*  @version 1.0.3
 *
 *  (C) Copyright 2017-2021 GoPro Inc (http://gopro.com/).
 *
@@ -203,7 +203,7 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 	{
 		printf("usage: udtacopy <source.mp4> <dest.mp4>\n");
-		printf(" vers: 1.02\n");
+		printf(" vers: 1.03\n");
 		printf("\n");
 		return -1;
 	}
@@ -243,7 +243,7 @@ int main(int argc, char *argv[])
 #ifdef _WINDOWS
 			_fseeki64(fp, (__int64)(udta_offset2 + 4), 0);
 #else
-			fseeko(fp, (off_t)(moov_offset2 + 4), 0);
+			fseeko(fp, (off_t)(udta_offset2 + 4), 0);
 #endif
 			fwrite(&freetag, 4, 1, fp);
 		}
